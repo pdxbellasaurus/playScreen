@@ -1,0 +1,92 @@
+[
+    {
+       "uid": 1,
+       "matchName": "Dominique",
+       "age": 22,
+       "distance": 4,
+       "lookingFor": "Relationship",
+       "attributes": [
+          "Country",
+          "Singing",
+          "In college"
+       ],
+       "images": [
+       {
+          "id": 1,
+          "image": "./assets/Profiles/Dominique/Dominique 1of2.jpeg"
+       },
+       {
+          "id": 2,
+          "image": "./assets/Profiles/Dominique/Dominique 1of2.jpeg"
+       }],
+ 
+       "reels":
+       {
+          "id": 1,
+          "playlist": "Funny",
+          "track": "My Best Joke",
+          "tape": "./assets/Profiles/Dominique//My Best Joke.m4a"
+       }
+    },
+ 
+    {
+       "uid": 2,
+       "matchName": "Jack",
+       "age": 26,
+       "distance": 8,
+       "lookingFor": "Friend",
+       "attributes": [
+          "EDM", "Hiking", "PhD"
+       ],
+       "images": [
+       {
+          "id": 1,
+          "image": "/assets/Profiles/Jack/Jack 1of2.jpeg"
+       },
+       {
+          "id": 2,
+          "image": "/assets/Profiles/Jack/Jack 2of2.jpeg"
+       }],
+       "reels": [
+       {
+          "id": 1,
+          "playlist": "Funny",
+          "track": "This Made Me Laugh",
+          "tape": "/assets/Profiles/Jack/This Made Me Laugh.m4a"
+       },
+       {
+          "id": 2,
+          "playlist": "A Bit of Me",
+          "track": "In My Free Time",
+          "tape": "/assets/Profiles/Jack/In My Free Time.m4a"
+       }]
+    },
+ 
+    {
+       "uid": 3,
+       "matchName": "Jess",
+       "age": 23,
+       "distance": 2,
+       "lookingFor": "Relationship",
+       "attributes": [
+          "Indie folk", "Woodworking", "Stand-up comedy", "Bachelors degree"
+       ],
+       "images": [
+       {
+          "id": 1,
+          "image": "/assets/Profiles/Jess/Jess 1of2.jpeg"
+       },
+       {
+          "id": 2,
+          "image": "/assets/Profiles/Jess/Jess 2of2.jpeg"
+       }],
+       "reels":
+       {
+          "id": 1,
+          "playlist": "Favorites",
+          "track": "Favorite Movie",
+          "tape": "/assets/Profiles/Jess/Favorite Movie.m4a"
+       }
+    }
+ 
+]
