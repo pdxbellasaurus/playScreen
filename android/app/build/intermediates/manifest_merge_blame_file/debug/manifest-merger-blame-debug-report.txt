@@ -1,0 +1,102 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.playscreen"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="30" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\debug\AndroidManifest.xml:5:5-77
+11-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\debug\AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:4:5-67
+12-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:4:22-64
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->[com.facebook.flipper:flipper:0.99.0] C:\Users\carri\.gradle\caches\transforms-3\0523946544650d86b679602665a68f33\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:5-76
+13-->[com.facebook.flipper:flipper:0.99.0] C:\Users\carri\.gradle\caches\transforms-3\0523946544650d86b679602665a68f33\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:22-73
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-68
+14-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-65
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
+15-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[com.google.android.exoplayer:exoplayer-core:2.11.4] C:\Users\carri\.gradle\caches\transforms-3\b35f61a7ebe9369fb14ba850029506de\transformed\jetified-exoplayer-core-2.11.4\AndroidManifest.xml:24:5-79
+16-->[com.google.android.exoplayer:exoplayer-core:2.11.4] C:\Users\carri\.gradle\caches\transforms-3\b35f61a7ebe9369fb14ba850029506de\transformed\jetified-exoplayer-core-2.11.4\AndroidManifest.xml:24:22-76
+17
+18    <application
+18-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:6:5-24:19
+19        android:name="com.playscreen.MainApplication"
+19-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:7:7-38
+20        android:allowBackup="false"
+20-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:11:7-34
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.5.0] C:\Users\carri\.gradle\caches\transforms-3\b3e2ecc75eaac67fac8d307020294f06\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+22        android:debuggable="true"
+23        android:icon="@mipmap/ic_launcher"
+23-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:9:7-41
+24        android:label="@string/app_name"
+24-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:8:7-39
+25        android:roundIcon="@mipmap/ic_launcher_round"
+25-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:10:7-52
+26        android:theme="@style/AppTheme"
+26-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:12:7-38
+27        android:usesCleartextTraffic="true" >
+27-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\debug\AndroidManifest.xml:8:9-44
+28        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+28-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\debug\AndroidManifest.xml:11:9-86
+28-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\debug\AndroidManifest.xml:11:19-83
+29        <activity
+29-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:13:7-23:18
+30            android:name="com.playscreen.MainActivity"
+30-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:14:9-37
+31            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+31-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:16:9-86
+32            android:label="@string/app_name"
+32-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:15:9-41
+33            android:launchMode="singleTask"
+33-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:17:9-40
+34            android:windowSoftInputMode="adjustResize" >
+34-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:18:9-51
+35            <intent-filter>
+35-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:19:9-22:25
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:20:13-65
+36-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:20:21-62
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:21:13-73
+38-->C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\android\app\src\main\AndroidManifest.xml:21:23-70
+39            </intent-filter>
+40        </activity> <!-- The main service, handles playback, playlists and media buttons -->
+41        <service
+41-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-22:19
+42            android:name="com.guichaguri.trackplayer.service.MusicService"
+42-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-75
+43            android:enabled="true"
+43-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-35
+44            android:exported="true" >
+44-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-36
+45            <intent-filter>
+45-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-21:29
+46                <action android:name="android.intent.action.MEDIA_BUTTON" />
+46-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-77
+46-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:25-74
+47            </intent-filter>
+48        </service> <!-- A receiver that will receive media buttons. Required on pre-lollipop devices -->
+49        <receiver android:name="androidx.media.session.MediaButtonReceiver" >
+49-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:9-29:20
+49-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:19-76
+50            <intent-filter>
+50-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-21:29
+51                <action android:name="android.intent.action.MEDIA_BUTTON" />
+51-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-77
+51-->[:react-native-track-player] C:\Users\carri\Desktop\Coding_Projects\impressionsProject\playScreen\node_modules\react-native-track-player\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:25-74
+52            </intent-filter>
+53        </receiver>
+54    </application>
+55
+56</manifest>
