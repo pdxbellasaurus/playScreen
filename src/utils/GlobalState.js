@@ -1,6 +1,5 @@
 import React, {createContext, useReducer, useContext} from 'react';
 import {
-  SET_MATCHES,
   SET_CURRENT_MATCH,
   REMOVE_MATCH,
   UPDATE_MATCHES,
@@ -11,20 +10,14 @@ import {
   LOADING
 } from './actions';
 
-
 const MatchContext = createContext();
 const { Provider } = MatchContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-    // case SET_MATCHES:
-    //   return {
-    //     ...state,
-    //     matches: action.payload,
-    //     loading: false
-    //   };
-
+  
   case SET_CURRENT_MATCH:
+    console.log("GLOBALSTATE_PRESS_CAPTURE")
     return {
       ...state,
       currentMatch: action.match,
