@@ -1,27 +1,38 @@
+//COMPILE COMPONENTS PLAYER AND BOTTOM UP
+//bottom screen for match playlist - includes matchprofile and matchplaylist
 //part of playtrack - matchname
-//user icon
-//"Attributes" Header text
-//attributes small bubbles wrap - Age text with age, location icon with distance and "mi" text, search icon with lookingFor, remaining attributes array
-//"Mix Tape Tracks" header text
-//tracks large bubbles list with tracks text and track length
 
 /////////////
+import React from "react";
+import { View, Text } from "react-native";
+import { MatchAttributes } from "./MatchPlaylist";
+import { MatchTracks } from "./MatchPlaylist";
+// import { Divider } from "react-native-elements"
+// import SVGImg from '../src/assets/Icons/profile.svg';
 
-import { View, Text, StyleSheet } from "react-native";
-import { useMatchContext } from "../utils/GlobalState";
-
-
-const MatchProfile = ({ navigation }) => {
-  const [state, dispatch] = useMatchContext();
-
-  const match = state.find((match) => match.uid === navigation.getParam("id"));
-
+const MatchProfile = ({ children }) => {
+  // const match = state.find((match) => match.uid === navigation.getParam("id"));
   return (
     <View>
-      <Text> {match.matchName} </Text>
-      <Text> {match.age} </Text>
+     {children}
+{/* TODO: Add header matchname and make stopping point
+
+TODO: Add profile icon in divider */}
+{/* 
+
+<Divider
+  orientation="horizontal"
+  subHeader="Test"
+  subHeaderStyle={{ color: 'blue' }}
+/>*/}
+{/* <SVGImg/>  */}
+<MatchAttributes/>
+<MatchTracks/>
+
     </View>
   );
 };
 
+
 export default MatchProfile;
+

@@ -1,9 +1,8 @@
 import React, {createContext, useReducer, useContext} from 'react';
+// import { useNavigation } from "@react-navigation/native";
 import {
   SET_CURRENT_MATCH,
-  REMOVE_MATCH,
   UPDATE_MATCHES,
-  ADD_MATCH,
   ADD_LIKE,
   UPDATE_LIKE,
   REMOVE_LIKE,
@@ -29,21 +28,6 @@ const reducer = (state, action) => {
       ...state,
       matches: [...action.matches],
       loading: false
-    };
-
-  case ADD_MATCH:
-    return {
-      ...state,
-      matches: [action.match, ...state.matches],
-      loading: false
-    };
-
-  case REMOVE_MATCH:
-    return {
-      ...state,
-      matches: state.matches.filter((match) => {
-        return match._id !== action._id; 
-      })
     };
 
   case ADD_LIKE:
@@ -74,14 +58,25 @@ const reducer = (state, action) => {
       loading: true
     };
 
+    // case SET_NAVIGATION:
+    //   return { 
+    //     ...state, 
+    //     navigation: action.payload, 
+    //     items: action.payload.matches.items ||  action.payload.items || [] 
+    //   };
+    
+
   default:
     return state;
   }
 };
 
 const MatchProvider = ({ value = [], ...props }) => {
+  
   const [state, dispatch] = useReducer(reducer, {
+    // navigation: useNavigation(),
     matches: [],
+   
     currentMatch: {
       _id: 0,
       matchName: "",

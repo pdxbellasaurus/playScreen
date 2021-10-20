@@ -1,3 +1,5 @@
+//GETS LIST OF MATCHES FOR LANDING SCREEN
+
 import React, { useEffect } from "react";
 import {
   View,
@@ -6,10 +8,13 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+// import { useNavigation } from "@react-navigation/native";
 import { useMatchContext } from "../utils/GlobalState";
 import { SET_CURRENT_MATCH } from "../utils/actions";
 import { UPDATE_MATCHES } from "../utils/actions";
 import matches from "../utils/matches.json";
+
+
 
 // TODO: Update styling
 // TODO: Navigate to profile when match selected from list
@@ -17,12 +22,14 @@ import matches from "../utils/matches.json";
 const MatchList = () => {
   const [state, dispatch] = useMatchContext();
 
+
   const getMatches = () => {
     dispatch({
       type: UPDATE_MATCHES,
       matches: matches,
     });
   };
+  
 
   useEffect(() => {
     getMatches();
@@ -35,7 +42,8 @@ const MatchList = () => {
       label,
       onPress,
       backgroundColor,
-      navigation,
+      navigation
+      
     }) => {
       return (
         <TouchableOpacity
@@ -51,13 +59,18 @@ const MatchList = () => {
       <Item
         key={index}
         item={item}
-        onPress={() =>
-          dispatch({
-            type: SET_CURRENT_MATCH,
-            match: item.uid,
-          })
-        }
+        // onPress={matchProfileHandler}
+        onPress={() => 
+          
+        dispatch({
+          type: SET_CURRENT_MATCH,
+          match: item,
+         
+        })
+      
+      }
         backgroundColor={{ backgroundColor }}
+        matchId={item.uid}
         label={item.matchName}
       />
     );
@@ -69,7 +82,7 @@ const MatchList = () => {
         <FlatList
           data={matches}
           renderItem={renderItem}
-          keyExtractor={(item) => item.uid}
+          keyExtractor={(match) => match.uid}
           extraData={state}
         ></FlatList>
       )}
@@ -96,3 +109,4 @@ const styles = StyleSheet.create({
 });
 
 export default MatchList;
+
