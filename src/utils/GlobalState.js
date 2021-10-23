@@ -1,5 +1,4 @@
 import React, {createContext, useReducer, useContext} from 'react';
-// import { useNavigation } from "@react-navigation/native";
 import {
   SET_CURRENT_MATCH,
   UPDATE_MATCHES,
@@ -20,6 +19,7 @@ const reducer = (state, action) => {
     return {
       ...state,
       currentMatch: action.match,
+   
       loading: false
     };
 
@@ -52,19 +52,25 @@ const reducer = (state, action) => {
       })
     };
 
+    case ADD_SEEN:
+      return {
+        ...state,
+        users: [action.match, ...state.users],
+        loading: false
+      };
+  
+    case UPDATE_SEEN:
+      return {
+        ...state,
+        users: [...state.users],
+        loading: false
+      };
+  
   case LOADING:
     return {
       ...state,
       loading: true
-    };
-
-    // case SET_NAVIGATION:
-    //   return { 
-    //     ...state, 
-    //     navigation: action.payload, 
-    //     items: action.payload.matches.items ||  action.payload.items || [] 
-    //   };
-    
+    }; 
 
   default:
     return state;
@@ -74,7 +80,7 @@ const reducer = (state, action) => {
 const MatchProvider = ({ value = [], ...props }) => {
   
   const [state, dispatch] = useReducer(reducer, {
-    // navigation: useNavigation(),
+   
     matches: [],
    
     currentMatch: {
@@ -89,6 +95,7 @@ const MatchProvider = ({ value = [], ...props }) => {
 
     },
     likes: [],
+    seen: [],
     loading: false
   });
 

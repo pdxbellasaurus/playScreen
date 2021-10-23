@@ -5,60 +5,112 @@
 //attributes small bubbles wrap - Age text with age, location icon with distance and "mi" text, search icon with lookingFor, remaining attributes array
 //"Mix Tape Tracks" header text
 //tracks large bubbles list with tracks text and track length
-import React from "react";
-import { View, Text } from "react-native";
+
+import React, { useEffect } from "react";
+import { StyleSheet, View, Text } from "react-native";
 import { Chip, Button } from "react-native-elements";
-
-
+import { useMatchContext } from "../utils/GlobalState";
+import DistanceIcon from "../assets/Icons/DistanceIcon";
+import LookingForIcon from "../assets/Icons/LookingForIcon";
 
 export function MatchAttributes({ children }) {
+  const [state, dispatch] = useMatchContext();
+
+  useEffect(() => {
+    console.log(state.currentMatch);
+  });
+
   return (
     <View>
-      {children}
-      <Text >Attributes</Text>
-
-      <View >
-        {/* TODO: Add svg to first three chips */}
-        <Chip>Age {currentMatch.age}</Chip>
+      <Text>Attributes</Text>
+      <View style={styles.chipContainer}>
+        <Chip
+          title={"Age " + state.currentMatch.age}
+          type="outline"
+          containerStyle={{ marginVertical: 5, marginHorizontal: 5 }}
+          disabled
+          style={styles.attributes}
+        />
         {/* TODO? is conversion needed, what tool/call is being used to get location of user and match  */}
 
-        <Chip>{currentMatch.distance} mi</Chip>
-        <Chip>{currentMatch.lookingFor}</Chip>
-
+        <Chip
+          title={" " + state.currentMatch.distance + " mi"}
+          type="outline"
+          disabled
+          style={styles.attributes}
+          icon={DistanceIcon}
+          containerStyle={{
+            marginVertical: 5,
+            marginHorizontal: 5,
+            borderRadius: 25,
+          }}
+        />
+        <Chip
+          title={" " + state.currentMatch.lookingFor}
+          type="outline"
+          disabled
+          style={styles.attributes}
+          icon={LookingForIcon}
+          iconStyle={{ color: "light" }}
+          containerStyle={{ marginVertical: 5, marginHorizontal: 5 }}
+        />
+      </View>
+      {/* TODO: Add track length and onPress method to play track */}
+      <View style={styles.chipContainer}>
         {state.currentMatch.attributes.length > 0 &&
-          state.attributes.map((attribute, index) => (
+          state.currentMatch.attributes.map((attribute, index) => (
             <Chip
               key={index}
               type="flat"
-            
-              textStyle={{ color: "white" }}
-            >
-              {attribute}
-            </Chip>
+              disabled
+              title={attribute}
+              iconStyle={{ color: "light" }}
+              containerStyle={{ marginVertical: 5, marginHorizontal: 5 }}
+            ></Chip>
           ))}
       </View>
     </View>
   );
 }
+
+
 export function MatchTracks({ children }) {
+  const [state, dispatch] = useMatchContext();
   return (
     <View>
-      {children}
-      <Text >Mix Tape Tracks</Text>
+      <Text>Mix Tape Tracks</Text>
 
-      <View >
+      <View>
         {state.currentMatch.reels.length > 0 &&
           state.currentMatch.reels.map((reel, index) => (
             <Button
               key={index}
               type="flat"
-              
-              textStyle={{ color: "white" }}
-            >
-              {reel.track}
-            </Button>
+              reel={reel}
+              title={reel.track}
+              playlist={reel.playlist}
+              tape={reel.tape}
+            ></Button>
           ))}
       </View>
     </View>
   );
 }
+
+//TODO: Complete styling (chips spacing and color, playlist color), fix model header not sticking
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  chipContainer: {
+    padding: 10,
+    marginRight: 10,
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  attributes: {
+    fontSize: 10,
+    fontWeight: "light",
+  },
+});

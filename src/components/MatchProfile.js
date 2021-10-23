@@ -7,32 +7,41 @@ import React from "react";
 import { View, Text } from "react-native";
 import { MatchAttributes } from "./MatchPlaylist";
 import { MatchTracks } from "./MatchPlaylist";
-// import { Divider } from "react-native-elements"
-// import SVGImg from '../src/assets/Icons/profile.svg';
+import { useMatchContext } from "../utils/GlobalState";
+import ProfileIcon from "../assets/Icons/ProfileIcon";
 
 const MatchProfile = ({ children }) => {
-  // const match = state.find((match) => match.uid === navigation.getParam("id"));
+  const [state, dispatch] = useMatchContext();
+
   return (
     <View>
-     {children}
-{/* TODO: Add header matchname and make stopping point
 
-TODO: Add profile icon in divider */}
-{/* 
+      <View style={{ flexDirection: "row" }}>
+        <View
+          style={{
+            backgroundColor: "#c0c0c0",
+            height: 1,
+            flex: 1,
+            alignSelf: "center",
+          }}
+        />
 
-<Divider
-  orientation="horizontal"
-  subHeader="Test"
-  subHeaderStyle={{ color: 'blue' }}
-/>*/}
-{/* <SVGImg/>  */}
-<MatchAttributes/>
-<MatchTracks/>
+        <ProfileIcon style={{ alignSelf: "center" }} />
+       
+        <View
+          style={{
+            backgroundColor: "#c0c0c0",
+            height: 1,
+            flex: 1,
+            alignSelf: "center",
+          }}
+        />
+      </View>
 
+      <MatchAttributes />
+      <MatchTracks />
     </View>
   );
 };
 
-
 export default MatchProfile;
-

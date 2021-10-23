@@ -14,8 +14,6 @@ import { SET_CURRENT_MATCH } from "../utils/actions";
 import { UPDATE_MATCHES } from "../utils/actions";
 import matches from "../utils/matches.json";
 
-
-
 // TODO: Update styling
 // TODO: Navigate to profile when match selected from list
 
@@ -41,9 +39,7 @@ const MatchList = () => {
     const Item = ({
       label,
       onPress,
-      backgroundColor,
-      navigation
-      
+      backgroundColor,      
     }) => {
       return (
         <TouchableOpacity
@@ -59,15 +55,11 @@ const MatchList = () => {
       <Item
         key={index}
         item={item}
-        // onPress={matchProfileHandler}
         onPress={() => 
-          
         dispatch({
           type: SET_CURRENT_MATCH,
-          match: item,
-         
-        })
-      
+          match: item,         
+        })      
       }
         backgroundColor={{ backgroundColor }}
         matchId={item.uid}
@@ -91,9 +83,9 @@ const MatchList = () => {
 };
 
 const styles = StyleSheet.create({
-  
-  container: {
+    container: {
     flex: 1,
+    marginTop: 50
   },
   item: {
     padding: 20,

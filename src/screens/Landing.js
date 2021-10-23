@@ -18,8 +18,7 @@ const Landing = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text> You have *{state.matches.length}* matches!</Text>
-      {/* <Text> {JSON.stringify(state.currentMatch, null, 2)}</Text> */}
+      <Text style={styles.header}>You have *{state.matches.length}* matches!</Text>
       <MatchList />
     </View>
   );
@@ -31,7 +30,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
+
   },
+  header:{
+   fontFamily:'Rock Salt',
+   fontSize: 20
+  }
 });
 
 export default Landing;

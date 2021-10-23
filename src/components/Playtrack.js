@@ -1,113 +1,227 @@
 //PLAYER COMPONENT 
+import React, {useEffect, useState} from 'react';
+import {
+  Image,
+  SafeAreaView,
+ 
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
+import { Slider } from 'react-native-elements';
+import TrackPlayer, {
+  Capability,
+  Event,
+  RepeatMode,
+  State,
+  usePlaybackState,
+  useProgress,
+  useTrackPlayerEvents,
+} from 'react-native-track-player';
+import { togglePlayback } from '../utils/playback';
 
-// Title (no status bar) home icon << current playlist (e.g. Thoughtful) >> return to matchprofile
-//current track bold center
-//track 1 (+1) of ? (reels.length -1)
-//back button?? left and views with number left (search icon) right
-//slider
-//player controls
-//dislike and like
-//matchName (part of matchprofile) 
-
-
-// import { Tile } from 'react-native-elements';
-
-
-
-// <Tile
-//   imageSrc={require('./img/path')}
-//   title="Lorem ipsum"
-//   featured
-//   caption="Some Caption Text"
-// />;
-
-// <Tile
-//   imageSrc={require('./img/path')}
-//   title="Lorem ipsum dolor sit amet, consectetur"
-//   icon={{ name: 'play-circle', type: 'font-awesome' }} // optional
-//   contentContainerStyle={{ height: 70 }}
-// >
-//   <View
-//     style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}
-//   >
-//     <Text>Caption</Text>
-//     <Text>Caption</Text>
-//   </View>
-// </Tile>;
+import {PlayIcon, PauseIcon, SkipIcon, SkippedPressedIcon, PreviousIcon, NextIcon, NextFadedIcon} from '../assets/Icons/PlayerIcons';
 
 
+// import playlistData from './react/data/playlist.json';
 
+import localTrack from '../assets/Profiles/Jess/Favorite Movie.m4a';
 
-//////IMAGE BACKGROUND
-//BLUR UNTIL PEAK
-// const image = { uri: '' };
+// const playlistData = [
 
-// <View style={styles.container}>
-//     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-//       <Text style={styles.text}>Inside</Text>
-//     </ImageBackground>
-//   </View>
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-//   image: {
-//     flex: 1,
-//     justifyContent: "center"
-//   },
-//   text: {
-//     color: "white",
-//     fontSize: 42,
-//     lineHeight: 84,
-//     fontWeight: "bold",
-//     textAlign: "center",
-//     backgroundColor: "#000000c0"
-//   }
-// });
-//////imagebackground
+// ]
 
+const setupIfNecessary = async () => {
+  // if app was relaunched and music was already playing, we don't setup again.
+  const currentTrack = await TrackPlayer.getCurrentTrack();
+  if (currentTrack !== null) {
+    return;
+  }
 
+  await TrackPlayer.setupPlayer({});
+  await TrackPlayer.updateOptions({
+    stopWithApp: true,
+    capabilities: [
+      Capability.Play,
+      Capability.Pause,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.Stop,
+    ],
+    compactCapabilities: [Capability.Play, Capability.Pause],
+    playIcon: PlayIcon,
+    pauseIcon: PauseIcon,
+    // stopIcon: require('./stop-icon.png'),
+    previousIcon: PreviousIcon,
+    nextIcon: NextIcon,
+    // icon: require('./notification-icon.png')
 
+  });
 
-//Player
-// import React from 'react';
-// import {SafeAreaView, StyleSheet} from 'react-native';
-// import List from './list';
+  await TrackPlayer.add(playlistData);
+  await TrackPlayer.add({
+    url: localTrack,
+    title: 'Pure (Demo)',
+    artist: 'David Chavez',
+    artwork: 'https://i.scdn.co/image/e5c7b168be89098eb686e02152aaee9d3a24e5b6',
+    duration: 28,
+  });
 
-// import {usePlayer} from '_globals/state/player';
-// import {Div} from 'react-native-magnus';
+  TrackPlayer.setRepeatMode(RepeatMode.Queue);
+};
 
-// import {useWindowDimensions} from 'react-native';
-// import Player from './BottomSheet';
-// import TrackPlayer, {useTrackPlayerEvents} from 'react-native-track-player';
-// const Playtrack = ({navigation}) => {
-//   // current played track
-//   //
-//   const [state, {setSelectedTrack}] = usePlayer();
-//   const {width} = useWindowDimensions();
+const CassettePlayerOld = () => {
+  const playbackState = usePlaybackState();
+  const progress = useProgress();
 
-//   const playerRef = React.useRef(null);
-//   useTrackPlayerEvents(['playback-track-changed'], async (event) => {
-//     if (event.type === TrackPlayer.TrackPlayerEvents.PLAYBACK_TRACK_CHANGED) {
-//       const track = await TrackPlayer.getTrack(event.nextTrack);
-//       const selectedTrack = track || {};
-//       setSelectedTrack(selectedTrack);
-//     }
-//   });
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <Div flex={1} bg="primary">
-//         <List playerRef={playerRef} />
-//         <Player ref={playerRef} />
-//       </Div>
-//     </SafeAreaView>
-//   );
-// };
+  const [trackArtwork, setTrackArtwork] = useState(null) ;
+  const [trackTitle, setTrackTitle] = useState('');
+  const [trackArtist, setTrackArtist] = useState('');
 
-// export default Playtrack;
-// const styles = StyleSheet.create({
-//   // Screen
-//   container: {
-//     flex: 1,
-//   },
-// });
+  useTrackPlayerEvents([Event.PlaybackTrackChanged], async event => {
+    if (
+      event.type === Event.PlaybackTrackChanged &&
+      event.nextTrack !== undefined
+    ) {
+      const track = await TrackPlayer.getTrack(event.nextTrack);
+      const {title, artist, artwork} = track || {};
+      setTrackTitle(title);
+      setTrackArtist(artist);
+      setTrackArtwork(artwork);
+    }
+  });
+
+  useEffect(() => {
+    setupIfNecessary();
+  }, []);
+
+  return (
+    <SafeAreaView style={styles.screenContainer}>
+      {/* <StatusBar barStyle={'light-content'} /> */}
+      <View style={styles.contentContainer}>
+        <View style={styles.topBarContainer}>
+          <TouchableWithoutFeedback>
+            <Text style={styles.queueButton}>Queue</Text>
+          </TouchableWithoutFeedback>
+        </View>
+        <Image style={styles.artwork} source={{uri: `${trackArtwork}`}} />
+        <Text style={styles.titleText}>{trackTitle}</Text>
+        <Text style={styles.artistText}>{trackArtist}</Text>
+        <View
+        style=
+        {{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
+        <Slider 
+        //   style={styles.progressContainer}
+          value={progress.position}
+          minimumValue={0}
+          maximumValue={progress.duration}
+          thumbStyle={{ height: 10, width: 10,  }}
+          thumbTintColor="#EC634A"
+          minimumTrackTintColor="#FFD479"
+          maximumTrackTintColor="#FFFFFF"
+          onSlidingComplete={async value => {
+            await TrackPlayer.seekTo(value);
+          }}
+        />
+        </View>
+        <View style={styles.progressLabelContainer}>
+          <Text style={styles.progressLabelText}>
+            {new Date(progress.position * 1000).toISOString().substr(14, 5)}
+          </Text>
+          <Text style={styles.progressLabelText}>
+            {new Date((progress.duration - progress.position) * 1000)
+              .toISOString()
+              .substr(14, 5)}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.actionRowContainer}>
+        <TouchableWithoutFeedback onPress={() => TrackPlayer.skipToPrevious()}>
+          <Text style={styles.secondaryActionButton}>Prev</Text>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => togglePlayback(playbackState)}>
+          <Text style={styles.primaryActionButton}>
+            {playbackState === State.Playing ? 'Pause' : 'Play'}
+          </Text>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => TrackPlayer.skipToNext()}>
+          <Text style={styles.secondaryActionButton}>Next</Text>
+        </TouchableWithoutFeedback>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  screenContainer: {
+    flex: 1,
+    backgroundColor: '#212121',
+    alignItems: 'center',
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  topBarContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    justifyContent: 'flex-end',
+  },
+  queueButton: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFD479',
+  },
+  artwork: {
+    width: 240,
+    height: 240,
+    marginTop: 30,
+    backgroundColor: 'grey',
+  },
+  titleText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: 'white',
+    marginTop: 30,
+  },
+  artistText: {
+    fontSize: 16,
+    fontWeight: '200',
+    color: 'white',
+  },
+  progressContainer: {
+    height: 40,
+    width: 380,
+    marginTop: 25,
+    flexDirection: 'row',
+  },
+  progressLabelContainer: {
+    width: 370,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  progressLabelText: {
+    color: 'white',
+    fontVariant: ['tabular-nums'],
+  },
+  actionRowContainer: {
+    width: '60%',
+    flexDirection: 'row',
+    marginBottom: 100,
+    justifyContent: 'space-between',
+  },
+  primaryActionButton: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#FFD479',
+  },
+  secondaryActionButton: {
+    fontSize: 14,
+    color: '#FFD479',
+  },
+});
+
+export default CassettePlayerOld;
+

@@ -13,20 +13,20 @@
        "images": [
        {
           "id": 1,
-          "image": "./assets/Profiles/Dominique/Dominique 1of2.jpeg"
+          "image": "../assets/Profiles/Dominique/Dominique1of2.jpeg"
        },
        {
           "id": 2,
-          "image": "./assets/Profiles/Dominique/Dominique 1of2.jpeg"
+          "image": "../assets/Profiles/Dominique/Dominique1of2.jpeg"
        }],
  
        "reels":
-       {
+       [{
           "id": 1,
           "playlist": "Funny",
           "track": "My Best Joke",
-          "tape": "./assets/Profiles/Dominique//My Best Joke.m4a"
-       }
+          "tape": "../assets/Profiles/Dominique//My Best Joke.m4a"
+       }]
     },
  
     {
@@ -41,24 +41,24 @@
        "images": [
        {
           "id": 1,
-          "image": "/assets/Profiles/Jack/Jack 1of2.jpeg"
+          "image": "../assets/Profiles/Jack/Jack1of2.jpeg"
        },
        {
           "id": 2,
-          "image": "/assets/Profiles/Jack/Jack 2of2.jpeg"
+          "image": "../assets/Profiles/Jack/Jack2of2.jpeg"
        }],
        "reels": [
        {
           "id": 1,
           "playlist": "Funny",
           "track": "This Made Me Laugh",
-          "tape": "/assets/Profiles/Jack/This Made Me Laugh.m4a"
+          "tape": "../assets/Profiles/Jack/This Made Me Laugh.m4a"
        },
        {
           "id": 2,
           "playlist": "A Bit of Me",
           "track": "In My Free Time",
-          "tape": "/assets/Profiles/Jack/In My Free Time.m4a"
+          "tape": "../assets/Profiles/Jack/In My Free Time.m4a"
        }]
     },
  
@@ -74,19 +74,18 @@
        "images": [
        {
           "id": 1,
-          "image": "/assets/Profiles/Jess/Jess 1of2.jpeg"
+          "image": "../assets/Profiles/Jess/Jess1of2.jpeg"
        },
        {
           "id": 2,
-          "image": "/assets/Profiles/Jess/Jess 2of2.jpeg"
+          "image": "../assets/Profiles/Jess/Jess2of2.jpeg"
        }],
        "reels":
-       {
+       [{
           "id": 1,
           "playlist": "Favorites",
           "track": "Favorite Movie",
-          "tape": "/assets/Profiles/Jess/Favorite Movie.m4a"
-       }
+          "tape": "../assets/Profiles/Jess/Favorite Movie.m4a"
+      }]
     }
- 
 ]

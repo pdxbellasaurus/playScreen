@@ -8,24 +8,42 @@ import { MatchProvider } from "./src/utils/GlobalState";
 import Landing from "./src/screens/Landing";
 import Cassette from "./src/screens/Cassette";
 
+// require('typeface-rock-salt')
+
 const Stack = createStackNavigator();
 
 function App() {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider style={styles.root}>
     <MatchProvider>
-      <NavigationContainer style={styles.root}>
+      <NavigationContainer >
         <Stack.Navigator
         initialRouteName="Landing"
         >
-          <Stack.Screen name="Matches" component={Landing} />
-          <Stack.Screen name="Cassette" component={Cassette} />
+         
+          <Stack.Screen name="Matches" component={Landing} 
+          options={{
+            headerShown: false
+                 }}
+          
+          />
+          <Stack.Screen 
+          name="Cassette"
+          component={Cassette} 
+          options={{
+            headerShown: false,
+            headerLeft: () => (
+              <HomeIcon
+                // onPress={() => alert('This is a button!')}
+                // title='' 
+                               /> ),
+                 }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </MatchProvider>
      </SafeAreaProvider>
-    
-  );
+      );
 }
 const styles = StyleSheet.create({
   root: {
