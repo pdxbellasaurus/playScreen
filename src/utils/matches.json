@@ -13,19 +13,23 @@
        "images": [
        {
           "id": 1,
-          "image": "../assets/Profiles/Dominique/Dominique1of2.jpeg"
+          "image": "require('../assets/Profiles/Dominique/Dominique1of2.jpeg')",
+          "source": "Dominique1of2"
        },
        {
           "id": 2,
-          "image": "../assets/Profiles/Dominique/Dominique1of2.jpeg"
+          "image": "require('../assets/Profiles/Dominique/Dominique1of2.jpeg')",
+          "source": "Dominique1of2"
        }],
  
        "reels":
        [{
           "id": 1,
           "playlist": "Funny",
-          "track": "My Best Joke",
-          "tape": "../assets/Profiles/Dominique//My Best Joke.m4a"
+          "title": "My Best Joke",
+          "track": "../assets/Profiles/Dominique//My Best Joke.m4a",
+          "duration": "22"
+
        }]
     },
  
@@ -41,24 +45,28 @@
        "images": [
        {
           "id": 1,
-          "image": "../assets/Profiles/Jack/Jack1of2.jpeg"
+          "image": "require('../assets/Profiles/Jack/Jack1of2.jpeg')",
+          "source": "../assets/Profiles/Jack/Jack1of2.jpeg"
        },
        {
           "id": 2,
-          "image": "../assets/Profiles/Jack/Jack2of2.jpeg"
+          "image": "require('../assets/Profiles/Jack/Jack2of2.jpeg')",
+          "source": "../assets/Profiles/Jack/Jack2of2.jpeg"
        }],
        "reels": [
        {
           "id": 1,
           "playlist": "Funny",
-          "track": "This Made Me Laugh",
-          "tape": "../assets/Profiles/Jack/This Made Me Laugh.m4a"
+          "title": "This Made Me Laugh",
+          "track": "../assets/Profiles/Jack/This Made Me Laugh.m4a",
+          "duration": "36"
        },
        {
           "id": 2,
           "playlist": "A Bit of Me",
-          "track": "In My Free Time",
-          "tape": "../assets/Profiles/Jack/In My Free Time.m4a"
+          "title": "In My Free Time",
+          "track": "../assets/Profiles/Jack/In My Free Time.m4a",
+          "duration": "17"
        }]
     },
  
@@ -74,18 +82,22 @@
        "images": [
        {
           "id": 1,
-          "image": "../assets/Profiles/Jess/Jess1of2.jpeg"
+          "image": "require('../assets/Profiles/Jess/Jess1of2.jpeg')",
+          "source": "Jess1of2'"
        },
        {
           "id": 2,
-          "image": "../assets/Profiles/Jess/Jess2of2.jpeg"
+          "image": "require('../assets/Profiles/Jess/Jess2of2.jpeg')",
+          "source": "Jess2of2"
        }],
        "reels":
        [{
           "id": 1,
           "playlist": "Favorites",
-          "track": "Favorite Movie",
-          "tape": "../assets/Profiles/Jess/Favorite Movie.m4a"
+          "title": "Favorite Movie",
+          "track": "../assets/Profiles/Jess/Favorite Movie.m4a",
+          "duration": "17"
+          
       }]
     }
 ]

@@ -8,18 +8,15 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-// import { useNavigation } from "@react-navigation/native";
 import { useMatchContext } from "../utils/GlobalState";
 import { SET_CURRENT_MATCH } from "../utils/actions";
 import { UPDATE_MATCHES } from "../utils/actions";
 import matches from "../utils/matches.json";
 
 // TODO: Update styling
-// TODO: Navigate to profile when match selected from list
 
 const MatchList = () => {
   const [state, dispatch] = useMatchContext();
-
 
   const getMatches = () => {
     dispatch({
@@ -28,7 +25,6 @@ const MatchList = () => {
     });
   };
   
-
   useEffect(() => {
     getMatches();
   }, []);

@@ -105,7 +105,7 @@ const CassettePlayerOld = () => {
             <Text style={styles.queueButton}>Queue</Text>
           </TouchableWithoutFeedback>
         </View>
-        <Image style={styles.artwork} source={{uri: `${trackArtwork}`}} />
+        
         <Text style={styles.titleText}>{trackTitle}</Text>
         <Text style={styles.artistText}>{trackArtist}</Text>
         <View
@@ -225,3 +225,81 @@ const styles = StyleSheet.create({
 
 export default CassettePlayerOld;
 
+
+
+const player = async () => {
+    await TrackPlayer.setupPlayer();
+    await TrackPlayer.add({
+      id: match.id,
+      url: match.highlightsLink,
+      title: matchName,
+      artist: 'Track Artist',
+      artwork: require('../assets/ind-vs-eng.jpeg'),
+    });
+    TrackPlayer.play();
+  };
+
+
+
+
+  import React, {useEffect, useState} from 'react';
+import {Text, Button, View, Image} from 'react-native';
+import TrackPlayer, {
+  TrackPlayerEvents,
+  STATE_PLAYING,
+} from 'react-native-track-player';
+import {
+  useTrackPlayerProgress,
+  useTrackPlayerEvents,
+} from 'react-native-track-player/lib/hooks';
+import Slider from '@react-native-community/slider';
+import styles from './styles';
+
+
+
+const playerInit = async () => {
+  await TrackPlayer.setupPlayer();
+  TrackPlayer.updateOptions({
+    stopWithApp: true,
+    capabilities: [
+      TrackPlayer.CAPABILITY_PLAY,
+      TrackPlayer.CAPABILITY_PAUSE,
+      TrackPlayer.CAPABILITY_JUMP_FORWARD,
+      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
+    ],
+  });
+  await TrackPlayer.add({tracks});
+  return true;
+};
+
+
+
+
+================
+function ProgressBar() {
+    const progress = useTrackPlayerProgress();
+  
+    return (
+      <View>
+      <View style={styles.progress}>
+        <View style={{ flex: progress.position,backgroundColor: "black"}} />
+        <View
+          style={{
+            flex: progress.duration - progress.position,
+            backgroundColor: "grey"
+          }}
+        />
+      </View>
+     
+      </View>
+    );
+  }
+  
+  function ControlButton({ title, onPress, disable }) {
+    return (
+      <TouchableOpacity disabled={disable} style={styles.controlButtonContainer} onPress={onPress}>
+      {title}
+      </TouchableOpacity>
+    );
+  }
+  

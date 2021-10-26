@@ -31,5 +31,9 @@ module.exports = {
         inlineRequires: true, 
       },
     }),
-  }
+  },
+  //ADD 10-23-2021 to resolve font bundler
+  resolver: {                              
+    sourceExts: ['jsx', 'js', 'ts', 'tsx'],
+  },
 };

@@ -7,8 +7,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { MatchProvider } from "./src/utils/GlobalState";
 import Landing from "./src/screens/Landing";
 import Cassette from "./src/screens/Cassette";
+import Test from './src/screens/Test';
 
-// require('typeface-rock-salt')
 
 const Stack = createStackNavigator();
 
@@ -19,25 +19,19 @@ function App() {
       <NavigationContainer >
         <Stack.Navigator
         initialRouteName="Landing"
-        >
-         
-          <Stack.Screen name="Matches" component={Landing} 
-          options={{
-            headerShown: false
-                 }}
-          
+        >        
+          <Stack.Screen 
+          name="Matches" 
+          component={Landing} 
+          options={{headerShown: false}}        
           />
           <Stack.Screen 
           name="Cassette"
           component={Cassette} 
-          options={{
-            headerShown: false,
-            headerLeft: () => (
-              <HomeIcon
-                // onPress={() => alert('This is a button!')}
-                // title='' 
-                               /> ),
-                 }}
+          />
+          <Stack.Screen 
+          name="Test"
+          component={Test} 
           />
         </Stack.Navigator>
       </NavigationContainer>
@@ -48,8 +42,7 @@ function App() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#EC634A'
-  }
+      }
 });
 
 export default App;

@@ -61,7 +61,6 @@ export function MatchAttributes({ children }) {
           state.currentMatch.attributes.map((attribute, index) => (
             <Chip
               key={index}
-              type="flat"
               disabled
               title={attribute}
               iconStyle={{ color: "light" }}
@@ -85,11 +84,10 @@ export function MatchTracks({ children }) {
           state.currentMatch.reels.map((reel, index) => (
             <Button
               key={index}
-              type="flat"
               reel={reel}
-              title={reel.track}
+              title={reel.title}
               playlist={reel.playlist}
-              tape={reel.tape}
+              track={reel.track}
             ></Button>
           ))}
       </View>
