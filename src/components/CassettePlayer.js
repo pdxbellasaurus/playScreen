@@ -4,7 +4,7 @@ import {
   View,
   Text,
   StyleSheet,
-  Animated,
+ Dimensions,
   TouchableWithoutFeedback,
   Pressable,
 } from "react-native";
@@ -33,6 +33,8 @@ import {
   LikeIcon,
   LikePressedIcon,
 } from "../assets/Icons/PlayerIcons";
+
+const { width } = Dimensions.get("window");
 
 const CassettePlayer = ({ children }) => {
   const [state, dispatch] = useMatchContext();
@@ -204,6 +206,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     justifyContent: "center",
     alignItems: "center",
+    
   },
 });
 

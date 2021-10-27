@@ -16,17 +16,17 @@ import { useNavigation } from "@react-navigation/native";
 import { useMatchContext } from "../utils/GlobalState";
 import MatchProfile from "../components/MatchProfile";
 import CassettePlayer from "../components/CassettePlayer";
-import ShareMatch from "../components/ShareMatch";
+import TrafficIcon from "../assets/Icons/TrafficIcon";
 import HomeIcon from "../assets/Icons/HomeIcon";
-import Dominique1of2 from '../assets/Profiles/Dominique/Dominique1of2.jpeg';
-import Dominique2of2 from '../assets/Profiles/Dominique/Dominique2of2.jpeg';
-require('../assets/Profiles/Jack/Jack1of2.jpeg');
-require('../assets/Profiles/Jack/Jack2of2.jpeg');
-require('../assets/Profiles/Jess/Jess1of2.jpeg');
-require('../assets/Profiles/Jess/Jess2of2.jpeg');
+import Dominique1of2 from "../assets/Profiles/Dominique/Dominique1of2.jpeg";
+import Dominique2of2 from "../assets/Profiles/Dominique/Dominique2of2.jpeg";
+require("../assets/Profiles/Jack/Jack1of2.jpeg");
+require("../assets/Profiles/Jack/Jack2of2.jpeg");
+require("../assets/Profiles/Jess/Jess1of2.jpeg");
+require("../assets/Profiles/Jess/Jess2of2.jpeg");
 
 const { height } = Dimensions.get("window");
-const actionSheetRef = createRef();
+
 
 //MatchPlaylist = bottom sheet include the person name, attributes and track list to play
 //Playtrack
@@ -36,17 +36,13 @@ const actionSheetRef = createRef();
 const Cassette = ({ props }) => {
   const navigation = useNavigation();
   const [state, dispatch] = useMatchContext();
-  let actionSheet;
-  // actionSheetRef.current?.setModalVisible(true);
-  // const staticImage = require("../assets/images/gradient.png");
+
+ 
   const bgImage = {
     uri: "https://cdn.pixabay.com/photo/2020/03/03/14/11/cassette-4898833_1280.jpg",
   };
 
-  useEffect(() => {
-    actionSheetRef.current?.show();
-    // console.log(state.currentMatch)
-  });
+
   ///NAVIGATION >>>
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -63,7 +59,7 @@ const Cassette = ({ props }) => {
       headerTitleStyle: {
         fontWeight: "300",
         fontSize: 15,
-        color: 'pink'
+        color: "pink",
       },
       headerLeft: () => (
         <TouchableOpacity
@@ -74,8 +70,8 @@ const Cassette = ({ props }) => {
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity onPress={ShareMatch} style={{ marginRight: 10 }}>
-          <ShareMatch style={{ color: "white" }} />
+        <TouchableOpacity oonPress={() => navigation.navigate("Test")} style={{ marginRight: 10 }}>
+          <TrafficIcon style={{ color: "white" }} />
         </TouchableOpacity>
       ),
     });
@@ -90,7 +86,8 @@ const Cassette = ({ props }) => {
             alignItems: "center",
             flexDirection: "row",
             flexWrap: "wrap",
-            justifyContent: "center"
+            justifyContent: "center",
+            
           }}
           horizontal={true}
         >
@@ -99,7 +96,7 @@ const Cassette = ({ props }) => {
               <View key={index} style={{ padding: 5 }}>
                 <Image
                   key={index}
-                  source={{uri: `${image.source}`}} 
+                  source={{ uri: `${image.source}` }}
                   resizeMode="center"
                 />
                 <Text>{image.image}</Text>
@@ -107,20 +104,11 @@ const Cassette = ({ props }) => {
               </View>
             ))}
         </ScrollView>
-     
-      <TouchableOpacity
-        onPress={() => {
-          actionSheetRef.current?.setModalVisible();
-        }}
-        style={styles.tab}
-      >
-        <Text color='pink'>{state.currentMatch.matchName}</Text>
-      </TouchableOpacity>
-      <CassettePlayer/>
-      <MatchProfile/>
 
+        <CassettePlayer />
+        {/* //ACTION SHEET */}
+        <MatchProfile />
       </ImageBackground>
-
     </SafeAreaView>
   );
 };
@@ -130,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-     },
+  },
 
   image: {
     flex: 1,
@@ -138,26 +126,31 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     height: "100%",
     alignItems: "center",
-    position: 'absolute',
-    
+    position: "absolute",
+
     // left: 0,
     // top: 0,
   },
-  tab: {
-    flex: 1,
-    backgroundColor: "transparent",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    alignSelf: "center",
-    justifyContent: "center",
-  },
-  opentab: {
-    alignSelf: "center",
-    flex: 1,
-    backgroundColor: "transparent",
-    borderRadius: 10,
-    justifyContent: "center",
-  },
+
+  //  header: {
+  //      width: '100%',
+  //      height: 50,
+  //  },
+
+  // tab: {
+  //   flex: 1,
+  //   backgroundColor: "fff",
+  //   borderTopLeftRadius: 30,
+  //   borderTopRightRadius: 30,
+
+  // },
+  // opentab: {
+  //   alignSelf: "center",
+  //   flex: 1,
+  //   backgroundColor: "transparent",
+  //   borderRadius: 10,
+  //   justifyContent: "center",
+  // },
 });
 
 export default Cassette;
