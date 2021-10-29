@@ -23,14 +23,30 @@ const reducer = (state, action) => {
       loading: false
     };
 
-  case UPDATE_MATCHES:
+    case UPDATE_MATCHES:
     return {
       ...state,
       matches: [...action.matches],
       loading: false
     };
 
-  case ADD_LIKE:
+    case SET_CURRENT_TRACKS:
+      console.log("GLOBALSTATE_TRACKS")
+      return {
+        ...state,
+        tracks: [...action.reels],
+      loading: false
+      };
+
+      case SET_CURRENT_IMAGES:
+      console.log("GLOBALSTATE_IMAGES")
+      return {
+        ...state,
+        images: [...action.images],
+      loading: false
+      };
+
+    case ADD_LIKE:
     return {
       ...state,
       likes: [action.match, ...state.likes],
@@ -82,7 +98,8 @@ const MatchProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
    
     matches: [],
-   
+   tracks:[],
+   images: [],
     currentMatch: {
       _id: 0,
       matchName: "",

@@ -7,8 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { MatchProvider } from "./src/utils/GlobalState";
 import Landing from "./src/screens/Landing";
 import Cassette from "./src/screens/Cassette";
-import Test from './src/screens/Test';
-
+import Traffic from './src/screens/Traffic';
 
 const Stack = createStackNavigator();
 
@@ -30,8 +29,19 @@ function App() {
           component={Cassette} 
           />
           <Stack.Screen 
-          name="Test"
-          component={Test} 
+          name="Traffic"
+          component={Traffic} 
+          options={{
+            
+            headerStyle: {
+              elevation: 0,
+            },
+            headerTransparent: true,
+          headerShadowVisible: false,
+          headerHideShadow: true,
+          headerTintColor: "rgba(0,0,0,0)",
+          headerTitleAlign: "center",
+          }}
           />
         </Stack.Navigator>
       </NavigationContainer>

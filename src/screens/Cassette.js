@@ -18,15 +18,15 @@ import MatchProfile from "../components/MatchProfile";
 import CassettePlayer from "../components/CassettePlayer";
 import TrafficIcon from "../assets/Icons/TrafficIcon";
 import HomeIcon from "../assets/Icons/HomeIcon";
-import Dominique1of2 from "../assets/Profiles/Dominique/Dominique1of2.jpeg";
-import Dominique2of2 from "../assets/Profiles/Dominique/Dominique2of2.jpeg";
-require("../assets/Profiles/Jack/Jack1of2.jpeg");
-require("../assets/Profiles/Jack/Jack2of2.jpeg");
-require("../assets/Profiles/Jess/Jess1of2.jpeg");
-require("../assets/Profiles/Jess/Jess2of2.jpeg");
+require("../../assets/images/Dominique1of2.jpeg");
+require("../../assets/images/Dominique2of2.jpeg");
+require("../../assets/images/Jack1of2.jpeg");
+require("../../assets/images/Jack2of2.jpeg");
+require("../../assets/images/Jess1of2.jpeg");
+require("../../assets/images/Jess2of2.jpeg");
 
 const { height } = Dimensions.get("window");
-
+const { width } = Dimensions.get("window");
 
 //MatchPlaylist = bottom sheet include the person name, attributes and track list to play
 //Playtrack
@@ -37,17 +37,18 @@ const Cassette = ({ props }) => {
   const navigation = useNavigation();
   const [state, dispatch] = useMatchContext();
 
- 
   const bgImage = {
     uri: "https://cdn.pixabay.com/photo/2020/03/03/14/11/cassette-4898833_1280.jpg",
   };
-
 
   ///NAVIGATION >>>
   React.useLayoutEffect(() => {
     navigation.setOptions({
       //TODO add conditional render {is playing/track selected in bottom sheet && {current playlest of track - possible through player}
-      // headerTitle: (props) => <Text {...props}>Current Playlist</Text>,
+      headerTitle: (props) => <Text {...props}>
+        Select a Mix Tape track to play
+      {/* {reel.playlist} */}
+      </Text>,
       headerStyle: {
         elevation: 0,
       },
@@ -57,7 +58,6 @@ const Cassette = ({ props }) => {
       headerTintColor: "rgba(0,0,0,0)",
       headerTitleAlign: "center",
       headerTitleStyle: {
-        fontWeight: "300",
         fontSize: 15,
         color: "pink",
       },
@@ -70,7 +70,10 @@ const Cassette = ({ props }) => {
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity oonPress={() => navigation.navigate("Test")} style={{ marginRight: 10 }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Traffic")}
+          style={{ marginRight: 10 }}
+        >
           <TrafficIcon style={{ color: "white" }} />
         </TouchableOpacity>
       ),
@@ -87,25 +90,32 @@ const Cassette = ({ props }) => {
             flexDirection: "row",
             flexWrap: "wrap",
             justifyContent: "center",
-            
+            // width: "100%"
           }}
           horizontal={true}
         >
+
+          {/* //TODO change to render item */}
           {state.currentMatch.images.length > 0 &&
             state.currentMatch.images.map((image, index) => (
               <View key={index} style={{ padding: 5 }}>
                 <Image
                   key={index}
-                  source={{ uri: `${image.source}` }}
+                  source={{ url: image.image }}
                   resizeMode="center"
+                  // style={{ padding: 15 }}
+                  // height= '100%'
+                  width= '100%'
                 />
                 <Text>{image.image}</Text>
                 <Text>{image.source}</Text>
+                <Text>{`${image.image}`}</Text>
+                <Text>{`${image.source}`}</Text>
               </View>
             ))}
         </ScrollView>
 
-        <CassettePlayer />
+        <CassettePlayer/>
         {/* //ACTION SHEET */}
         <MatchProfile />
       </ImageBackground>
@@ -116,7 +126,7 @@ const Cassette = ({ props }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "center",
   },
 
@@ -128,29 +138,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
 
-    // left: 0,
-    // top: 0,
   },
 
-  //  header: {
-  //      width: '100%',
-  //      height: 50,
-  //  },
-
-  // tab: {
-  //   flex: 1,
-  //   backgroundColor: "fff",
-  //   borderTopLeftRadius: 30,
-  //   borderTopRightRadius: 30,
-
-  // },
-  // opentab: {
-  //   alignSelf: "center",
-  //   flex: 1,
-  //   backgroundColor: "transparent",
-  //   borderRadius: 10,
-  //   justifyContent: "center",
-  // },
 });
 
 export default Cassette;

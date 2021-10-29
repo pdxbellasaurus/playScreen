@@ -28,7 +28,7 @@ const Landing = ({ navigation }) => {
       <View>
         <Divider />
         <Button
-          onPress={() => navigation.navigate("Test")}
+          onPress={() => navigation.navigate("Traffic")}
           title="Go to Test Page"
         />
       </View>

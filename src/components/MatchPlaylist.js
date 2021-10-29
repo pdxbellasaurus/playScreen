@@ -29,8 +29,6 @@ export function MatchAttributes({ children }) {
           disabled
           style={styles.attributes}
         />
-        {/* TODO? is conversion needed, what tool/call is being used to get location of user and match  */}
-
         <Chip
           title={" " + state.currentMatch.distance + " mi"}
           disabled
@@ -59,7 +57,7 @@ export function MatchAttributes({ children }) {
           }}
         />
       </View>
-      {/* TODO: Add onPress method to play track */}
+
       <View style={styles.chipContainer}>
         {state.currentMatch.attributes.length > 0 &&
           state.currentMatch.attributes.map((attribute, index) => (
@@ -85,6 +83,15 @@ export function MatchAttributes({ children }) {
 
 export function MatchTracks({ children }) {
   const [state, dispatch] = useMatchContext();
+
+  // const onTrackPress = index => {
+  //   changeTrack(index);
+  // };
+
+  // const changeTrack = index => {
+  //   TrackPlayer.skip(index);
+  //   TrackPlayer.play();
+  // };
   return (
     <View style={{ paddingTop: 15 }}>
       <Text style={styles.subtitle}>Mix Tape Tracks</Text>
@@ -92,7 +99,9 @@ export function MatchTracks({ children }) {
       <View>
         {state.currentMatch.reels.length > 0 &&
           state.currentMatch.reels.map((reel, index) => (
+            //TODO Add on press function to play track, and isSelected
             <Button
+              // onPress={() => onTrackPress(reel.index)}
               key={index}
               reel={reel}
               title={reel.title}
@@ -110,12 +119,13 @@ export function MatchTracks({ children }) {
                   {new Date(reel.duration * 1000).toISOString().substr(14, 5)}
                 </Text>
               }
+              activeOpacity={0.5}
               containerStyle={{
                 marginVertical: 5,
                 marginHorizontal: 5,
                 borderRadius: 5,
               }}
-              //TODO Add on press function to play track, and isSelected
+              
             ></Button>
           ))}
       </View>
@@ -139,6 +149,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    fontWeight: "light",
+    fontWeight: "200",
   },
 });

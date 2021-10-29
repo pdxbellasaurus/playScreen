@@ -13,13 +13,15 @@
        "images": [
        {
           "id": 1,
-          "image": "require('../assets/Profiles/Dominique/Dominique1of2.jpeg')",
-          "source": "Dominique1of2"
+          "req": "require('../../assets/images/Dominique1of2.jpeg')",
+          "image": "../../assets/images/Dominique1of2",
+          "source": "https://github.com/pdxbellasaurus/playScreen/blob/main/assets/images/Dominique1of2.jpeg"
        },
        {
           "id": 2,
-          "image": "require('../assets/Profiles/Dominique/Dominique1of2.jpeg')",
-          "source": "Dominique1of2"
+          "req": "require('../../assets/images/Dominique1of2.jpeg')",
+          "image": "../../assets/images/Dominique1of2",
+          "source": "https://github.com/pdxbellasaurus/playScreen/blob/main/assets/images/Dominique2of2.jpeg"
        }],
  
        "reels":
@@ -27,7 +29,7 @@
           "id": 1,
           "playlist": "Funny",
           "title": "My Best Joke",
-          "track": "../assets/Profiles/Dominique//My Best Joke.m4a",
+          "track": "../../assets/audio/My Best Joke.m4a",
           "duration": "22"
 
        }]
@@ -45,27 +47,29 @@
        "images": [
        {
           "id": 1,
-          "image": "require('../assets/Profiles/Jack/Jack1of2.jpeg')",
-          "source": "../assets/Profiles/Jack/Jack1of2.jpeg"
+          "req": "require('../../assets/images/Jack1of2.jpeg')",
+          "image": "../../assets/images/Jack1of2.jpeg",
+          "source": "https://github.com/pdxbellasaurus/playScreen/blob/main/assets/images/Jack1of2.jpeg"
        },
        {
           "id": 2,
-          "image": "require('../assets/Profiles/Jack/Jack2of2.jpeg')",
-          "source": "../assets/Profiles/Jack/Jack2of2.jpeg"
+          "req": "require('../../assets/images/Jack2of2.jpeg')",
+          "image": "../../assets/images/Jack2of2.jpeg",
+          "source": "https://github.com/pdxbellasaurus/playScreen/blob/main/assets/images/Jack2of2.jpeg"
        }],
        "reels": [
        {
           "id": 1,
           "playlist": "Funny",
           "title": "This Made Me Laugh",
-          "track": "../assets/Profiles/Jack/This Made Me Laugh.m4a",
+          "track": "../../assets/audio/This Made Me Laugh.m4a",
           "duration": "36"
        },
        {
           "id": 2,
           "playlist": "A Bit of Me",
           "title": "In My Free Time",
-          "track": "../assets/Profiles/Jack/In My Free Time.m4a",
+          "track": "../../assets/audio/In My Free Time.m4a",
           "duration": "17"
        }]
     },
@@ -82,20 +86,22 @@
        "images": [
        {
           "id": 1,
-          "image": "require('../assets/Profiles/Jess/Jess1of2.jpeg')",
-          "source": "Jess1of2'"
+          "req": "require('../../assets/images/Jess1of2.jpeg')",
+          "image": "Jess1of2.jpeg",
+          "source": "https://github.com/pdxbellasaurus/playScreen/blob/main/assets/images/Jess1of2.jpeg"
        },
        {
           "id": 2,
-          "image": "require('../assets/Profiles/Jess/Jess2of2.jpeg')",
-          "source": "Jess2of2"
+          "req": "require('../../assets/images/Jess2of2.jpeg')",
+          "image": "../../assets/images/Jess2of2.jpeg",
+          "source": "https://github.com/pdxbellasaurus/playScreen/blob/main/assets/images/Jess2of2.jpeg"
        }],
        "reels":
        [{
           "id": 1,
           "playlist": "Favorites",
           "title": "Favorite Movie",
-          "track": "../assets/Profiles/Jess/Favorite Movie.m4a",
+          "track": "../../assets/audio/Favorite Movie.m4a",
           "duration": "17"
           
       }]
